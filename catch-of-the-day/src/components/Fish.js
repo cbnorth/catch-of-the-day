@@ -16,10 +16,16 @@ class Fish extends React.Component {
 				</h3>
 				<p>{details.desc}</p>
 				<button onClick={() => this.props.addToOrder(index)} disabled={!isAvailable}>{buttonText}</button>
-				<button onClick={() => this.props.removeFromOrder(index)}>Remove from order</button>
 			</li>
 		)
 	}
+}
+
+
+Fish.propTypes = {
+	details: React.PropTypes.object.isRequired,
+	index: React.PropTypes.string.isRequired,
+	addToOrder: React.PropTypes.func.isRequired
 }
 
 

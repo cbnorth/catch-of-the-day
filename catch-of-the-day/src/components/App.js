@@ -95,10 +95,9 @@ class App extends React.Component {
 								.keys(this.state.fishes)
 								.map(key => <Fish
 									key={key} i
-									ndex={key}
+									index={key}
 									details={this.state.fishes[key]}
 									addToOrder={this.addToOrder}
-									removeFromOrder={this.removeFromOrder}
 								/>)
 						}
 					</ul>
@@ -107,6 +106,7 @@ class App extends React.Component {
 					fishes={this.state.fishes}
 					order={this.state.order}
 					params={this.props.params}
+					removeFromOrder={this.removeFromOrder}
 				/>
 				<Inventory
 					addFish={this.addFish}
@@ -118,6 +118,10 @@ class App extends React.Component {
 			</div>
 		)
 	}
+}
+
+App.propTypes = {
+	params: React.PropTypes.object.isRequired
 }
 
 

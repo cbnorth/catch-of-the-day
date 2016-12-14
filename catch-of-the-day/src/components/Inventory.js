@@ -1,5 +1,6 @@
 import React from 'react';
 import AddFishForm from './AddFishForm';
+import {formatPrice} from '../helpers';
 
 
 class Inventory extends React.Component {
@@ -23,7 +24,7 @@ class Inventory extends React.Component {
 		return (
 			<div className="fish-edit" key={key}>
 				<input name="name" type="text" value={fish.name} placeholder="Fish Name" onChange={(e) => this.handleChange(e, key)}/>
-				<input name="price" type="text"  value={fish.price}placeholder="Fish Price" onChange={(e) => this.handleChange(e, key)}/>
+				<input name="price" type="text"  value={formatPrice(fish.price)}placeholder="Fish Price" onChange={(e) => this.handleChange(e, key)}/>
 				<select  name="status" value={fish.status} onChange={(e) => this.handleChange(e, key)}>
 					<option value="available">Fresh!</option>
 					<option value="unavailable">Sold Out!</option>
@@ -46,6 +47,16 @@ class Inventory extends React.Component {
 		)
 	}
 }
+
+
+Inventory.propTypes = {
+	fishes: React.PropTypes.object.isRequired,
+	updateFish: React.PropTypes.func.isRequired,
+	removeFish: React.PropTypes.func.isRequired,
+	loadSamples: React.PropTypes.func.isRequired,
+	addFish: React.PropTypes.func.isRequired
+}
+
 
 
 export default Inventory;

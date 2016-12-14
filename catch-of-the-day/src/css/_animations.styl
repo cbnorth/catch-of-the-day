@@ -5,3 +5,17 @@
   appear Must set transitionAppear={true} on animation component
 */
 
+
+.order-enter
+	transition all 0.5s
+	transform translateX(-120%)
+	&.order-enter-active
+		transform translateX(0)
+
+
+.order-leave
+	transition all 0.5s
+	transform translateX(0)
+	&.order-leave-active
+		transform translateX(120%)
+
